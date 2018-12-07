@@ -1,0 +1,32 @@
+<!--
+  Generated template for the CreateAccount page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <form [formGroup]="credentialsForm" (ngSubmit)="setAccount()">
+
+    <ion-item *ngIf="catalog.response">
+      <ion-label>Types of cards</ion-label>
+        <ion-select ([ngModel])="gender" [formControl]="credentialsForm.controls['name']">
+            <ion-option value="{{tipos.name}}" *ngFor="let tipos of catalog.response.type_cards">{{tipos.name}}
+                <!-- <ion-input type="hidden" value="{{tipos.type}}" [formControl]="credentialsForm.controls['type']"></ion-input> -->
+            </ion-option>
+        </ion-select>
+    </ion-item> 
+    <button ion-button block color="secondary" type='submit'>
+      New account
+    </button>
+  </form>
+</ion-content>
